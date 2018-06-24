@@ -25,39 +25,39 @@ class ChatClient {
 
     registerFunctions() {
         var self = this;
-        this.registerCommand('ping', 'Check your latency.', function () {
+        this.registerCommand('ping', 'Sprawdz opoznienie.', function () {
             self.checkLatency();
         });
 
-        this.registerCommand('dark', 'Toggle dark mode.', function () {
+        this.registerCommand('dark', 'Przelacz tryb ciemnosci.', function () {
             self.toggleDarkMode();
         });
 
-        this.registerCommand('border', 'Toggle visibility of border.', function () {
+        this.registerCommand('border', 'Przelacz widocznosc granicy.', function () {
             self.toggleBorder();
         });
 
-        this.registerCommand('mass', 'Toggle visibility of mass.', function () {
+        this.registerCommand('mass', 'Przelacz widocznosc masy.', function () {
             self.toggleMass();
         });
 
-        this.registerCommand('continuity', 'Toggle continuity.', function () {
+        this.registerCommand('continuity', 'Przelacz ciąglosc.', function () {
             self.toggleContinuity();
         });
 
-        this.registerCommand('roundfood', 'Toggle food drawing.', function (args) {
+        this.registerCommand('roundfood', 'Przelacz rysowanie zywnosci.', function (args) {
             self.toggleRoundFood(args);
         });
 
-        this.registerCommand('help', 'Information about the chat commands.', function () {
+        this.registerCommand('help', 'Informacje o komendach.', function () {
             self.printHelp();
         });
 
-        this.registerCommand('login', 'Login as an admin.', function (args) {
+        this.registerCommand('login', 'Dla adminow.', function (args) {
             self.socket.emit('pass', args);
         });
 
-        this.registerCommand('kick', 'Kick a player, for admins only.', function (args) {
+        this.registerCommand('kick', 'Wyrzuc gracza, dla adminow.', function (args) {
             self.socket.emit('kick', args);
         });
         global.chatClient = this;
@@ -72,7 +72,7 @@ class ChatClient {
 
         // Colours the chat input correctly.
         newline.className = (me) ? 'me' : 'friend';
-        newline.innerHTML = '<b>' + ((name.length < 1) ? 'An unnamed cell' : name) + '</b>: ' + message;
+        newline.innerHTML = '<b>' + ((name.length < 1) ? 'Anonim' : name) + '</b>: ' + message;
 
         this.appendMessage(newline);
     }
